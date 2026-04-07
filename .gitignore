@@ -20,6 +20,9 @@
 # Configuration
 wp-config.php
 
+# Keep the sample config in version control so developers can use it as a template
+!/wp-config-sample.php
+
 # Example themes
 /wp-content/themes/twenty*/
 
