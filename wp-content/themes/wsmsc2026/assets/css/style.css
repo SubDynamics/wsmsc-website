@@ -91,27 +91,27 @@ a:focus {
 
 .wsmsc-hero__title {
 	font-family: 'league-gothic', Impact, 'Arial Narrow', sans-serif;
-	font-size: clamp(3rem, 9vw, 8rem);
+	font-size: clamp(4.5rem, 12vw, 12rem);
 	font-weight: 400;
-	letter-spacing: 0.03em;
+	letter-spacing: 0.02em;
 	text-transform: uppercase;
 	color: #ffffff;
-	line-height: 1.0;
+	line-height: 0.95;
 	text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 .wsmsc-hero__divider {
 	border: none;
-	border-top: 2px solid rgba(255, 255, 255, 0.7);
-	width: 70%;
-	margin: 1.2rem auto;
+	border-top: 1px solid rgba(255, 255, 255, 0.65);
+	width: 55%;
+	margin: 1.5rem auto;
 }
 
 .wsmsc-hero__tagline {
 	font-family: 'league-gothic', Impact, 'Arial Narrow', sans-serif;
-	font-size: clamp(1rem, 2.5vw, 1.6rem);
+	font-size: clamp(0.9rem, 1.6vw, 1.4rem);
 	font-weight: 400;
-	letter-spacing: 0.12em;
+	letter-spacing: 0.18em;
 	text-transform: uppercase;
 	color: #ffffff;
 	text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
@@ -120,27 +120,27 @@ a:focus {
 /* ─── Welcome Section ──────────────────────────────────────── */
 .wsmsc-welcome {
 	background: #ffffff;
-	padding: 5rem 1.5rem 3rem;
+	padding: 5rem 2rem 3rem;
 }
 
 .wsmsc-welcome__inner {
-	max-width: 700px;
+	max-width: 800px;
 	margin: 0 auto;
 }
 
 .wsmsc-welcome__heading {
 	font-family: 'adobe-caslon-pro', Georgia, serif;
-	font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-	font-weight: 700;
+	font-size: clamp(1.5rem, 3vw, 2rem);
+	font-weight: 600;
 	color: #1a1a1a;
 	margin-bottom: 1.5rem;
 	line-height: 1.3;
 }
 
 .wsmsc-welcome__body p {
-	margin-bottom: 1rem;
-	font-size: 1rem;
-	line-height: 1.75;
+	margin-bottom: 0.75rem;
+	font-size: 0.975rem;
+	line-height: 1.7;
 }
 
 .wsmsc-welcome__body p:last-child {
@@ -154,7 +154,7 @@ a:focus {
 }
 
 .wsmsc-callout__inner {
-	max-width: 700px;
+	max-width: 800px;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -177,7 +177,7 @@ a:focus {
 .wsmsc-gallery__row {
 	display: grid;
 	gap: 6px;
-	max-width: 700px;
+	max-width: 800px;
 	margin: 0 auto 6px;
 }
 
@@ -246,9 +246,9 @@ a:focus {
 .wsmsc-event-card-section {
 	position: relative;
 	width: 100%;
-	min-height: 620px;
+	min-height: 700px;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;    /* card sits at top, not vertically centred */
 	overflow: hidden;
 }
 
@@ -259,22 +259,23 @@ a:focus {
 
 .wsmsc-event-card-section__bg {
 	position: absolute;
-	inset: 0;
+	inset: -20% 0;              /* oversized for parallax headroom */
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	will-change: transform;
 	z-index: 0;
 }
 
 .wsmsc-event-card-section__card {
 	position: relative;
 	z-index: 1;
-	background: rgba(255, 255, 255, 0.88);
-	backdrop-filter: blur(2px);
-	max-width: 480px;
+	background: rgba(255, 255, 255, 0.92);
+	max-width: 500px;
 	width: 100%;
-	padding: 3rem 3rem 3rem 2.5rem;
-	margin: 2rem;
+	padding: 2.5rem;
+	margin: 0;                  /* flush with top/left edge of section */
+	align-self: flex-start;
 }
 
 .wsmsc-event-card__title {
@@ -290,15 +291,14 @@ a:focus {
 
 .wsmsc-event-card__body p {
 	font-family: 'adobe-caslon-pro', Georgia, serif;
-	font-size: 1rem;
+	font-size: 0.95rem;
 	line-height: 1.75;
 	color: #1a1a1a;
-	margin-bottom: 1rem;
+	margin-bottom: 0.85rem;
 }
 
 .wsmsc-event-card__body p:last-child {
 	margin-bottom: 0;
-	font-style: italic;
 }
 
 /* ─── Responsive Breakpoints ───────────────────────────────── */
@@ -318,8 +318,6 @@ a:focus {
 	.wsmsc-event-card-section {
 		min-height: auto;
 		flex-direction: column;
-		justify-content: flex-start;
-		align-items: flex-start;
 	}
 
 	.wsmsc-event-card-section--right {
@@ -330,12 +328,12 @@ a:focus {
 		position: relative;
 		height: 280px;
 		width: 100%;
+		inset: 0;               /* reset parallax inset on mobile */
 	}
 
 	.wsmsc-event-card-section__card {
 		position: relative;
 		max-width: 100%;
-		margin: 0;
 		padding: 2rem 1.5rem;
 	}
 }
